@@ -1,4 +1,4 @@
-# Task 02: Create Baseline `solution.py` and `test_solution.py`
+# Task 02: Create Baseline `solution.py`, `test_solution.py` and `assess_solution.py`
 
 ## Problem Setup
 
@@ -16,3 +16,4 @@ Linear Regression (simplest possible baseline).
 
 - `solution.py` — `Model` class with `fit/predict/save/load` using `LinearRegression`, plus inline self-test
 - `test_solution.py` — standalone self-test script that verifies serialization integrity
+- `assess_solution.py` — standalone script that measures the accuracy on the test set and will not be available to the agent

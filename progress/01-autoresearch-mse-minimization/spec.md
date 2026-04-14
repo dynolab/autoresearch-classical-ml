@@ -156,7 +156,6 @@ We do not to enforce these types of actions explicitly. Instead, we will classif
 - Code versions per iteration: after each iteration, `solution.py` should be copied to `solution_iter_{N}.py`
 
 ## 4. Expected Outcomes
-- Baseline model MSE: **TBD**
-- Expected improvement: **TBD**
-- Plateau iteration estimate: **TBD** 
-- Most effective intervention type (RQ2): **TBD** 
+- Baseline model train MSE: 0.013833
+- Baseline model test MSE: 0.006492
+- Expected improvement (test MSE): 0.001
