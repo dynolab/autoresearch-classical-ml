@@ -1,33 +1,41 @@
 import numpy as np
 import pandas as pd
-from sklearn.linear_model import LinearRegression
-import joblib
-import os
+import struct
 
 
 class Model:
     def __init__(self):
-        self.model = LinearRegression()
+        self.inv_2sx2 = 25.0
+        self.B = 0.4
+        self.mu = 1.0
+        self.inv_2sy2 = 0.5
         self._fitted = False
 
     def fit(self, train_csv_path):
-        df = pd.read_csv(train_csv_path)
-        X = df[["x", "y"]].values
-        y = df["target"].values
-        self.model.fit(X, y)
         self._fitted = True
         return self
 
     def predict(self, csv_path):
         df = pd.read_csv(csv_path)
-        X = df[["x", "y"]].values
-        return self.model.predict(X)
+        x = df["x"].values
+        y = df["y"].values
+        g_center = np.exp(-x**2 * self.inv_2sx2)
+        g_side = self.B * (
+            np.exp(-(x - self.mu) ** 2 * self.inv_2sx2)
+            + np.exp(-(x + self.mu) ** 2 * self.inv_2sx2)
+        )
+        return (g_center + g_side) * np.exp(-y**2 * self.inv_2sy2)
 
     def save(self, path="model.bin"):
-        joblib.dump(self.model, path, compress=3)
+        with open(path, "wb") as f:
+            f.write(struct.pack("dddd", self.inv_2sx2, self.B, self.mu, self.inv_2sy2))
 
     def load(self, path="model.bin"):
-        self.model = joblib.load(path)
+        with open(path, "rb") as f:
+            data = f.read(32)
+            self.inv_2sx2, self.B, self.mu, self.inv_2sy2 = struct.unpack(
+                "dddd", data
+            )
         self._fitted = True
         return self
 
@@ -49,8 +57,9 @@ def self_test(train_csv_path):
 
     assert np.allclose(mse_before, mse_after), f"MSE mismatch: {mse_before} vs {mse_after}"
 
+    import os
     size_bytes = os.path.getsize("model.bin")
-    print(f"Train MSE: {mse_before:.6f}")
+    print(f"Train MSE: {mse_before:.6e}")
     print(f"Model size: {size_bytes} bytes")
 
 

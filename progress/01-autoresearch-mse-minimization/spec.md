@@ -68,7 +68,7 @@ Agent then iteratively modifies `solution.py` to improve MSE (measured via self-
 #### Initial Prompt (Iteration 1)
 You are an ML optimization agent. Your task is to improve a regression model defined in `solution.py` for predicting `target` from features `x` and `y`. The model performance is defined by two metrics: MSE (should be minimized on the unavailable test set) and the disk space occupied by the model dump (should be minimized). Thus, by "improvement", we understand minimization of these two metrics.
 
-**Dataset**: Train CSV at `/path/to/train.csv` with columns `x`, `y`, `target`. The test set is separate and you do NOT have access to it.
+**Dataset**: Train CSV at `/Users/tony/datasets/abc/train_dataset.csv` with columns `x`, `y`, `target`. The test set is separate and you do NOT have access to it.
 
 **Train and test MSE metrics**:
 - **Train MSE**: You compute this yourself by running the self-test on training data. Record it in `work_log.md` as `Train MSE`.

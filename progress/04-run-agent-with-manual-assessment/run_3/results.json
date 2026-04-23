@@ -1,0 +1,33 @@
+{
+    "iterations":
+    [
+        {
+            "i": 0,
+            "train_mae": 0.013833,
+            "test_mae": 0.006492,
+            "size": 436,
+            "comment": "Baseline (linear regression)"
+        },
+        {
+            "i": 1,
+            "train_mae": 0.00000156,
+            "test_mae": 0.000009,
+            "size": 20451,
+            "comment": "Kernel Ridge Regression"
+        },
+        {
+            "i": 2,
+            "train_mae": 0,
+            "test_mae": 0,
+            "size": 10760,
+            "comment": "Added anisotropic features"
+        },
+        {
+            "i": 3,
+            "train_mae": 0,
+            "test_mae": 0,
+            "size": 32,
+            "comment": "Groundtruth solution"
+        }
+    ]
+}

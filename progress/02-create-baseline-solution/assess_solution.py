@@ -21,4 +21,4 @@ def assess_solution(test_csv_path):
 
 
 if __name__ == "__main__":
-    assess_solution("/Users/tony/datasets/three_peaks/test_dataset.csv")
+    assess_solution("/Users/tony/datasets/abc/test_dataset.csv")

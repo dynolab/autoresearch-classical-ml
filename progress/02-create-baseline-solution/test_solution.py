@@ -31,4 +31,4 @@ def test_solution(train_csv_path):
 
 
 if __name__ == "__main__":
-    test_solution("/Users/tony/datasets/three_peaks/train_dataset.csv")
+    test_solution("/Users/tony/datasets/abc/train_dataset.csv")

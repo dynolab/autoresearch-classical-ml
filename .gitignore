@@ -1,3 +1,6 @@
+# binaries
+*.bin
+
 # python
 __pycache__/
 

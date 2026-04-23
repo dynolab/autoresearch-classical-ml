@@ -1,0 +1,83 @@
+{
+    "iterations":
+    [
+        {
+            "i": 0,
+            "train_mae": 0.013833,
+            "test_mae": 0.006492,
+            "size": 436,
+            "comment": "Baseline (linear regression)"
+        },
+        {
+            "i": 1,
+            "train_mae": 0.008303,
+            "test_mae": 0.004247,
+            "size": 866,
+            "comment": "Added polynomial features"
+        },
+        {
+            "i": 2,
+            "train_mae": 0.007666,
+            "test_mae": 0.004002,
+            "size": 776,
+            "comment": "Added radial features"
+        },
+        {
+            "i": 3,
+            "train_mae": 0.007666,
+            "test_mae": 0.004002,
+            "size": 776,
+            "comment": "Lost work log"
+        },
+        {
+            "i": 4,
+            "train_mae": 0.004939,
+            "test_mae": 0.002901,
+            "size": 1214,
+            "comment": "Added trigonometric features"
+        },
+        {
+            "i": 5,
+            "train_mae": 0.001038,
+            "test_mae": 0.000640,
+            "size": 3284
+        },
+        {
+            "i": 6,
+            "train_mae": 0.000962,
+            "test_mae": 0.000608,
+            "size": 2675
+        },
+        {
+            "i": 7,
+            "train_mae": 0.000708,
+            "test_mae": 0.000450,
+            "size": 2656,
+            "comment": "Started reducing the regularization coefficient"
+        },
+        {
+            "i": 8,
+            "train_mae": 0.000684,
+            "test_mae": 0.000438,
+            "size": 2636
+        },
+        {
+            "i": 9,
+            "train_mae": 0.000603,
+            "test_mae": 0.000454,
+            "size": 2551
+        },
+        {
+            "i": 10,
+            "train_mae": 0.000394,
+            "test_mae": 0.001393,
+            "size": 4186
+        },
+        {
+            "i": 11,
+            "train_mae": 0.000712,
+            "test_mae": 0.000448,
+            "size": 2651
+        }
+    ]
+}

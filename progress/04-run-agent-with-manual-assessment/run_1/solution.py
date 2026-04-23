@@ -1,30 +1,49 @@
 import numpy as np
 import pandas as pd
-from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
+from sklearn.linear_model import Ridge
+from sklearn.pipeline import Pipeline
 import joblib
 import os
 
 
 class Model:
     def __init__(self):
-        self.model = LinearRegression()
+        self.model = Pipeline([
+            ('poly', PolynomialFeatures(degree=5, include_bias=False)),
+            ('ridge', Ridge(alpha=1e-9))
+        ])
         self._fitted = False
 
     def fit(self, train_csv_path):
         df = pd.read_csv(train_csv_path)
-        X = df[["x", "y"]].values
-        y = df["target"].values
-        self.model.fit(X, y)
+        x = df["x"].values
+        y = df["y"].values
+        theta = np.arctan2(y, x)
+        r = np.sqrt(x**2 + y**2)
+        log_r = np.log1p(r)
+        sin_3theta = np.sin(3 * theta)
+        cos_3theta = np.cos(3 * theta)
+        X = np.column_stack([x, y, log_r, sin_3theta, cos_3theta])
+        y_target = df["target"].values
+        self.model.fit(X, y_target)
         self._fitted = True
         return self
 
     def predict(self, csv_path):
         df = pd.read_csv(csv_path)
-        X = df[["x", "y"]].values
+        x = df["x"].values
+        y = df["y"].values
+        theta = np.arctan2(y, x)
+        r = np.sqrt(x**2 + y**2)
+        log_r = np.log1p(r)
+        sin_3theta = np.sin(3 * theta)
+        cos_3theta = np.cos(3 * theta)
+        X = np.column_stack([x, y, log_r, sin_3theta, cos_3theta])
         return self.model.predict(X)
 
     def save(self, path="model.bin"):
-        joblib.dump(self.model, path, compress=3)
+        joblib.dump(self.model, path, compress=9)
 
     def load(self, path="model.bin"):
         self.model = joblib.load(path)
@@ -55,4 +74,4 @@ def self_test(train_csv_path):
 
 
 if __name__ == "__main__":
-    self_test("/Users/tony/datasets/abc/train_dataset.csv")
+    self_test("/Users/tony/datasets/three_peaks/train_dataset.csv")
