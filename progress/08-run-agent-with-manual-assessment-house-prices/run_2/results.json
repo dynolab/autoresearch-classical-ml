@@ -1,0 +1,46 @@
+{
+    "iterations":
+    [
+        {
+            "i": 0,
+            "train_mae": 7.59e-05,
+            "test_mae": 2.06e-02,
+            "comment": "Baseline (XGBoost)"
+        },
+        {
+            "i": 1,
+            "train_mae": 4.44e-03,
+            "test_mae": 1.69e-02,
+            "comment": "Basic feature engineering"
+        },
+        {
+            "i": 2,
+            "train_mae": 6.39e-03,
+            "test_mae": 1.68e-02,
+            "comment": "Additional feature engineering"
+        },
+        {
+            "i": 3,
+            "train_mae": 6.06e-03,
+            "test_mae": 1.56e-02,
+            "comment": "XGBoost + LightGBM + CatBoost blended via Ridge regression"
+        },
+        {
+            "i": 4,
+            "train_mae": 5.21e-03,
+            "test_mae": 1.58e-02,
+            "comment": "Added target encoding and GradientBoosting"
+        },
+        {
+            "i": 5,
+            "train_mae": 5.23e-03,
+            "test_mae": 1.56e-02
+        },
+        {
+            "i": 6,
+            "train_mae": 7.28e-03,
+            "test_mae": 1.55e-02,
+            "comment": "Replaced GB with ElasticNet and tuned hyperparameters"
+        }
+    ]
+}

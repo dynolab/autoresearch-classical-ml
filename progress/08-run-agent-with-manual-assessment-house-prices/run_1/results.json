@@ -1,0 +1,63 @@
+{
+    "iterations":
+    [
+        {
+            "i": 0,
+            "train_mae": 7.59e-05,
+            "test_mae": 2.06e-02,
+            "comment": "Baseline (XGBoost)"
+        },
+        {
+            "i": 1,
+            "train_mae": 9.58e-04,
+            "test_mae": 1.75e-02,
+            "comment": "Basic feature engineering"
+        },
+        {
+            "i": 2,
+            "train_mae": 9.49e-03,
+            "test_mae": 1.65e-02,
+            "comment": "Added Lasso to ensemble and k-folds"
+        },
+        {
+            "i": 3,
+            "train_mae": 9.46e-03,
+            "test_mae": 1.65e-02,
+            "comment": "Added LightGBM to ensemble"
+        },
+        {
+            "i": 4,
+            "train_mae": 8.95e-03,
+            "test_mae": 1.58e-02,
+            "comment": "Added target encoding"
+        },
+        {
+            "i": 5,
+            "train_mae": 8.60e-03,
+            "test_mae": 1.57e-02
+        },
+        {
+            "i": 6,
+            "train_mae": 8.72e-03,
+            "test_mae": 1.54e-02,
+            "comment": "Added GradientBoostingRegressor to ensemble"
+        },
+        {
+            "i": 7,
+            "train_mae": 9.33e-03,
+            "test_mae": 1.54e-02,
+            "comment": "Added CatBoost to ensemble"
+        },
+        {
+            "i": 8,
+            "train_mae": 7.86e-03,
+            "test_mae": 1.56e-02
+        },
+        {
+            "i": 9,
+            "train_mae": 8.41e-03,
+            "test_mae": 1.54e-02,
+            "comment": "Added KernelRidge to ensemble"
+        }
+    ]
+}
